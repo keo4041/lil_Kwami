@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react';
+import { env } from 'node:process';
 // import accessibilities_data from './data/accessibilities.json'
 // import services_data from './data/services.json'
 
@@ -6,7 +7,8 @@ const HotelInfo = () => {
   const [accessibilities_data, setaccessibilities_data] = useState([])
   const loadaccessibilities_data = async() =>{
     //Query the API gateway
-    const resp = await fetch("https://tpwxod9599.execute-api.us-east-1.amazonaws.com/Production/accessibilities");
+    var uri = env.API_URL + env.GET_ACCESSIBILITIES_ENDPOINT
+    const resp = await fetch(uri);
     let jsonData = await resp.json();
 
     //Assign response data to our state variable
@@ -17,7 +19,8 @@ const HotelInfo = () => {
   const [services_data, setservices_data] = useState([])
   const loadservices_data = async() =>{
     //Query the API gateway
-    const resp = await fetch("https://tpwxod9599.execute-api.us-east-1.amazonaws.com/Production/services");
+    var uri = env.API_URL + env.GET_SERVICES_ENDPOINT
+    const resp = await fetch(uri);
     let jsonData = await resp.json();
 
     //Assign response data to our state variable
@@ -58,21 +61,6 @@ return (
             <li>service.name</li>
             )
           }
-          {/* <li>Indoor pool</li>
-          <li>24-hour fitness center</li>
-          <li>Massage therapy</li>
-          <li>Full service spa</li>
-          <li>In-room jacuzzi tubs</li>
-          <li>Rooftop café  &amp; smoothie bar</li>
-          <li>Coffee bar  &amp; pastry shop</li>
-          <li>Traditional continental breakfast</li>
-          <li>24-hour concierge service</li>
-          <li>Business center</li>
-          <li>Complimentary wireless service</li>
-          <li>Laundry &amp; dry cleaning service</li>
-          <li>Daily paper</li>
-          <li>Certified "green" hotel</li>
-          <li>Pet-friendly rooms  &amp; common areas</li> */}
         </ul>
       </section>
       <section className="checklist" id="accessibility">
@@ -84,19 +72,6 @@ return (
             <li>accessibilitie.name</li>
             )
           }
-          {/* <li>Grab bars on tub walls</li>
-          <li>Shower chairs</li>
-          <li>Hand held shower sprayers</li>
-          <li>Higher toilets &amp; toilet modifiers</li>
-          <li>Lower sink faucet handles</li>
-          <li>Wheelchair clearance under sinks &amp; vanity</li>
-          <li>Lower racks in closet</li>
-          <li>TDD machines</li>
-          <li>Telephone light signalers  &amp; smoke alarms</li>
-          <li>Telephone amplification handsets</li>
-          <li>Closed captioned television converters</li>
-          <li>Vibrating alarm clocks</li>
-          <li>Telephones with volume control</li> */}
         </ul>
       </section>
     </article>

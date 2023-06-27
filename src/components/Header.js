@@ -1,11 +1,13 @@
 import React, {useState, useEffect} from 'react';
+import { env } from 'node:process';
 // import menuLinksData from './data/menu_links.json'
 
 const Header = () =>{
   const [menuLinksData, setMenuLinksData] = useState([])
   const loadMenuLinksData = async() =>{
     //Query the API gateway
-    const resp = await fetch("https://tpwxod9599.execute-api.us-east-1.amazonaws.com/Production/menuLinks");
+    var uri = env.API_URL + env.GET_MENULINKS_ENDPOINT
+    const resp = await fetch(uri);
     let jsonData = await resp.json();
 
     //Assign response data to our state variable
@@ -36,11 +38,6 @@ const Header = () =>{
                     <li><a className={`icon ${link.class}`} href={link.href}><span>{link.text}</span></a></li>
                 )
                 }
-                {/* <li><a className="icon info" href="#hotelinfo"><span>info</span></a></li>
-                <li><a className="icon rooms" href="#rooms"><span>rooms</span></a></li>
-                <li><a className="icon dining" href="#dining"><span>dining</span></a></li>
-                <li><a className="icon events" href="#events"><span>events</span></a></li>
-                <li><a className="icon attractions" href="#attractions"><span>attractions</span></a></li> */}
               </ul>
             </div>
           </nav>
