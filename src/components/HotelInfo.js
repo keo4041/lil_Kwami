@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import { env } from 'node:process';
+// import { env } from 'node:process';
 // import accessibilities_data from './data/accessibilities.json'
 // import services_data from './data/services.json'
 
@@ -7,7 +7,7 @@ const HotelInfo = () => {
   const [accessibilities_data, setaccessibilities_data] = useState([])
   const loadaccessibilities_data = async() =>{
     //Query the API gateway
-    var uri = env.REACT_APP_API_URL + env.REACT_APP_GET_ACCESSIBILITIES_ENDPOINT
+    var uri = process.env.REACT_APP_API_URL + process.env.REACT_APP_GET_ACCESSIBILITIES_ENDPOINT
     const resp = await fetch(uri);
     let jsonData = await resp.json();
 
@@ -19,7 +19,7 @@ const HotelInfo = () => {
   const [services_data, setservices_data] = useState([])
   const loadservices_data = async() =>{
     //Query the API gateway
-    var uri = env.REACT_APP_API_URL + env.REACT_APP_GET_SERVICES_ENDPOINT
+    var uri = process.env.REACT_APP_API_URL + process.env.REACT_APP_GET_SERVICES_ENDPOINT
     const resp = await fetch(uri);
     let jsonData = await resp.json();
 

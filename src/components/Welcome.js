@@ -1,12 +1,12 @@
 import React, {useState, useEffect} from 'react';
-import { env } from 'node:process';
+// import { env } from 'node:process';
 // import gallery_images_data from './data/gallery_images.json'
 
 const Welcome = () => {
   const [gallery_images_data, setgallery_images_data] = useState([])
   const loadgallery_images_data = async() =>{
     //Query the API gateway
-    var uri = env.REACT_APP_API_URL + env.REACT_APP_GET_GALLERYIMAGES_ENDPOINT
+    var uri = process.env.REACT_APP_API_URL + process.env.REACT_APP_GET_GALLERYIMAGES_ENDPOINT
     const resp = await fetch(uri);
     let jsonData = await resp.json();
 

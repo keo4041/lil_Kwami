@@ -1,12 +1,12 @@
 import React, {useState, useEffect} from 'react';
-import { env } from 'node:process';
+// import { env } from 'node:process';
 // import menuLinksData from './data/menu_links.json'
 
 const Header = () =>{
   const [menuLinksData, setMenuLinksData] = useState([])
   const loadMenuLinksData = async() =>{
     //Query the API gateway
-    var uri = env.REACT_APP_API_URL + env.REACT_APP_GET_MENULINKS_ENDPOINT
+    var uri = process.env.REACT_APP_API_URL + process.env.REACT_APP_GET_MENULINKS_ENDPOINT
     const resp = await fetch(uri);
     let jsonData = await resp.json();
 
