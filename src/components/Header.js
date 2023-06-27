@@ -6,7 +6,7 @@ const Header = () =>{
   const [menuLinksData, setMenuLinksData] = useState([])
   const loadMenuLinksData = async() =>{
     //Query the API gateway
-    var uri = env.API_URL + env.GET_MENULINKS_ENDPOINT
+    var uri = env.REACT_APP_API_URL + env.REACT_APP_GET_MENULINKS_ENDPOINT
     const resp = await fetch(uri);
     let jsonData = await resp.json();
 

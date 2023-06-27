@@ -6,7 +6,7 @@ const Welcome = () => {
   const [gallery_images_data, setgallery_images_data] = useState([])
   const loadgallery_images_data = async() =>{
     //Query the API gateway
-    var uri = env.API_URL + env.GET_GALLERYIMAGES_ENDPOINT
+    var uri = env.REACT_APP_API_URL + env.REACT_APP_GET_GALLERYIMAGES_ENDPOINT
     const resp = await fetch(uri);
     let jsonData = await resp.json();
 
