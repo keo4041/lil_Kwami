@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import gallery_images_data from './data/gallery_images.json'
+// import gallery_images_data from './data/gallery_images.json'
 
 const Welcome = () => {
   const [gallery_images_data, setgallery_images_data] = useState([])
