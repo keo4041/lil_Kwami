@@ -1,0 +1,1 @@
+aws lambda add-permission --statement-id c37098c4-a4be-5f1d-a156-4f60152850dc --action lambda:InvokeFunction --function-name "arn:aws:lambda:us-east-1:466843556785:function:getServices" --principal apigateway.amazonaws.com --source-arn "arn:aws:execute-api:us-east-1:466843556785:tpwxod9599/*/*/services"
